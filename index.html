@@ -413,7 +413,7 @@
 					
 				//Загрузка подложек с компьютера//
 					//Карта 1931 года//
-					var indakar = L.tileLayer('tiles/indakar/{z}/{x}/{y}.png', {
+					var idnakar = L.tileLayer('tiles/{z}/{x}/{y}.png', {
 					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 					tms: true,
 					pane: 's'
@@ -501,7 +501,7 @@
 				};
 
 				var overlays = {
-				"Топоплан": indakar
+				"Топоплан": idnakar
 				};
 				
 				//https://leafletjs.com/examples/custom-icons///
