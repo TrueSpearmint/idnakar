@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+		<title>IndaKAR</title>
+		<link href="Favicon/Favicon.ico" rel="shortcut icon" type="image/x-icon">
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+			<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+				<script> //нахождения геолокации https://github.com/domoritz/leaflet-locatecontrol </script>
+					<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.1/dist/L.Control.Locate.min.css" />
+					<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.1/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+						<style>
+						* {box-sizing: border-box}
+
+						/* Set height of body and the document to 100% */
+						body, html {
+							height: 100%;
+							margin: 0;
+							font-family: Arial;
+						}
+
+						/* Style tab links */
+						.tablink {
+							background-color: #555;
+							color: white;
+							float: left;
+							border: none;
+							outline: none;
+							cursor: pointer;
+							padding: 14px 16px;
+							font-size: 17px;
+							width: 20%;
+						}
+
+						.tablink:hover {
+							background-color: #777;
+						}
+
+						/* Style the tab content (and add height:100% for full page content) */
+						.tabcontent {
+							color: white;
+							display: none;
+							padding: 1px 1px;
+							height: 100%;
+						}
+						
+						/* Style the icon */
+						#Logo {
+							padding: 10px 10px;
+						}
+						
+						#map {position: absolute;
+						  left: 0px;
+						  right:0px;
+						  top: 48px;
+						  bottom: 0px;
+						  z-index: 0;
+						  }
+
+						#Home {background-color: #D5CDC0;}
+						#MAAAP {background-color: green;}
+						#threeDK {background-color: blue;}
+						#threeDS {background-color: orange;}
+						#Print {background-color: black;}
+						</style>
+	</head>
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, 'red')">Главная</button>
+<button class="tablink" onclick="openPage('MAAAP', this, 'green')" id="defaultOpen">Карта</button>
+<button class="tablink" onclick="openPage('threeDK', this, 'blue')">3D курганов</button>
+<button class="tablink" onclick="openPage('threeDS', this, 'orange')">3D Семибратнего городища</button>
+<button class="tablink" onclick="openPage('Print', this, 'black')">Скачать</button>
+
+<div id="Home" class="tabcontent">
+		<h1><font color="black"> Городище Лабрис и окружающие погребения</h1>
+		<p><font size="3" color="black"> "Данный сайт отражает результаты выпускной квалификационной работы по теме: "Картографирование курганов Таманского полуострова по материалам архивной и современной аэросъемок (на примере Семибратних курганов)".
+		Данный сайт содержит интерактивную веб-карту, трёхмерные модели рельефа и два топографических плана масштаба 1:1000.</p>
+		<p>Разработанные карты будут полезны прежде всего археологам и историкам как для дальнейшего изучения территории Семибратних курганов и расположенного рядом Семибратнего городища, так и для будущих схожих проектов.</p>
+		<p>Основное обобщающее исследование: Малышев А.А., Дрыга Д.О., Мочалов А.В., Моор В.В. — Роль цифровых технологий в реконструкции антропогенных ландшафтов древней Cиндики // Историческая информатика. – 2019. – № 4. – С. 108 - 121. DOI: 10.7256/2585-7797.2019.4.31622 URL: <a href="https://nbpublish.com/library_read_article.php?id=31622"> https://nbpublish.com/library_read_article.php?id=31622</a></p>
+		  <!--<img src="img/cat.jpg" width="100%" height="100%">
+		  <img src="Favicon\Favicon from internet.jpg" id="Logo" width="64px">-->
+		  
+		  <!--https://html5css.ru/howto/howto_js_lightbox.php-->
+		  <style>
+	body {
+	  font-family: Verdana, sans-serif;
+	  margin: 0;
+	}
+
+	* {
+	  box-sizing: border-box;
+	}
+
+	.row > .column {
+	  padding: 0 8px;
+	}
+
+	.row:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+
+	.column {
+	  float: left;
+	  width: 25%;
+	}
+
+	/* The Modal (background) */
+	.modal {
+	  display: none;
+	  position: fixed;
+	  z-index: 1;
+	  padding-top: 100px;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  overflow: auto;
+	  background-color: black;
+	}
+
+	/* Modal Content */
+	.modal-content {
+	  position: relative;
+	  background-color: #fefefe;
+	  margin: auto;
+	  padding: 0;
+	  width: 90%;
+	  max-width: 1200px;
+	}
+
+	/* The Close Button */
+	.close {
+	  color: white;
+	  position: absolute;
+	  top: 10px;
+	  right: 25px;
+	  font-size: 35px;
+	  font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	  color: #999;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
+
+	.mySlides {
+	  display: none;
+	}
+
+	.cursor {
+	  cursor: pointer;
+	}
+
+	/* Next & previous buttons */
+	.prev,
+	.next {
+	  cursor: pointer;
+	  position: absolute;
+	  top: 50%;
+	  width: auto;
+	  padding: 16px;
+	  margin-top: -50px;
+	  color: white;
+	  font-weight: bold;
+	  font-size: 20px;
+	  transition: 0.6s ease;
+	  border-radius: 0 3px 3px 0;
+	  user-select: none;
+	  -webkit-user-select: none;
+	}
+
+	/* Position the "next button" to the right */
+	.next {
+	  right: 0;
+	  border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+	  background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	/* Number text (1/3 etc) */
+	.numbertext {
+	  color: #f2f2f2;
+	  font-size: 12px;
+	  padding: 8px 12px;
+	  position: absolute;
+	  top: 0;
+	}
+
+	img {
+	  margin-bottom: -4px;
+	}
+
+	.caption-container {
+	  text-align: center;
+	  background-color: black;
+	  padding: 2px 16px;
+	  color: white;
+	}
+
+	.demo {
+	  opacity: 0.6;
+	}
+
+	.active,
+	.demo:hover {
+	  opacity: 1;
+	}
+
+	img.hover-shadow {
+	  transition: 0.3s;
+	}
+
+	.hover-shadow:hover {
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	</style>
+	<body>
+
+	<h2 style="text-align:center">Примеры моделирования территории</h2>
+
+	<div class="row">
+	  <div class="column">
+		<img src="img/illKurgansAll.jpg" alt="" style="width:100%" height="270px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+	  </div>
+	  <div class="column">
+		<img src="img/illKurgan7_1.jpg" alt="" style="width:100%" height="270px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+	  </div>
+	  <div class="column">
+		<img src="img/gorodishe1.jpg" alt="" style="width:100%" height="270px" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+	  </div>
+	  <div class="column">
+		<img src="img/gorodishe2.jpg" alt="" style="width:100%" height="270px" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+	  </div>
+	</div>
+
+	<div id="myModal" class="modal">
+	  <span class="close cursor" onclick="closeModal()">×</span>
+	  <div class="modal-content">
+
+		<div class="mySlides">
+		  <div class="numbertext">1 / 4</div>
+		  <img src="img/illKurgansAll.jpg" alt="" style="width:100%">
+		</div>
+
+		<div class="mySlides">
+		  <div class="numbertext">2 / 4</div>
+		  <img src="img/illKurgan7_1.jpg" alt="" style="width:100%">
+		</div>
+
+		<div class="mySlides">
+		  <div class="numbertext">3 / 4</div>
+		  <img src="img/gorodishe1.jpg" alt="" style="width:100%">
+		</div>
+		
+		<div class="mySlides">
+		  <div class="numbertext">4 / 4</div>
+		  <img src="img/gorodishe2.jpg" alt="" style="width:100%">
+		</div>
+		
+		<a class="prev" onclick="plusSlides(-1)">❮</a>
+		<a class="next" onclick="plusSlides(1)">❯</a>
+
+		<div class="caption-container">
+		  <p id="caption"></p>
+		</div>
+
+
+		<div class="column">
+		  <img class="demo cursor" src="img/illKurgansAll.jpg" alt="" style="width:100%" onclick="currentSlide(1)" alt="Семибратние курганы: 1 – вид с запада (ОАК за 1876, СПб, 1879), 2 – вид с юга (визуализация на основе фотограмметрии (2017-2018 гг.), вып. В.В. Моором)">
+		</div>
+		<div class="column">
+		  <img class="demo cursor" src="img/illKurgan7_1.jpg" alt="" style="width:100%" onclick="currentSlide(2)" alt="Курган №7: визуализация насыпи, раскопов и погребальных сооружений на основе фотограмметрии и плана раскопа, вып. В.В. Моором.">
+		</div>
+		<div class="column">
+		  <img class="demo cursor" src="img/gorodishe1.jpg" alt="" style="width:100%" onclick="currentSlide(3)" alt="Визуализация фортификационных сооружений Семибратнего городища в ландшафтном окружении основе фотограмметрии (2017-2018 гг.) и плана раскопа, вып. В.В. Моором.">
+		</div>
+		<div class="column">
+		  <img class="demo cursor" src="img/gorodishe2.jpg" alt="" style="width:100%" onclick="currentSlide(4)" alt="Визуализация фортификационных сооружений Семибратнего городища в ландшафтном окружении основе фотограмметрии (2017-2018 гг.) и плана раскопа, вып. В.В. Моором.">
+		</div>
+	  </div>
+	</div>
+
+		<script>
+		function openModal() {
+		  document.getElementById('myModal').style.display = "block";
+		}
+
+		function closeModal() {
+		  document.getElementById('myModal').style.display = "none";
+		}
+
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("demo");
+		  var captionText = document.getElementById("caption");
+		  if (n > slides.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+			  slides[i].style.display = "none";
+		  }
+		  for (i = 0; i < dots.length; i++) {
+			  dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block";
+		  dots[slideIndex-1].className += " active";
+		  captionText.innerHTML = dots[slideIndex-1].alt;
+		}
+		</script>
+
+</div>
+
+	<div id="MAAAP" class="tabcontent">
+		<div id="map"> </div>
+	</div>
+
+	<div id="threeDK" class="tabcontent">
+		<iframe src="3D/Kurgans/kurgansthreejsmodel.html" width="100%" height="100%" frameborder="0">
+			Ваш браузер не поддерживает плавающие фреймы!
+		</iframe>
+	</div>
+
+	<div id="threeDS" class="tabcontent">
+		<iframe src="3D/Settlement/settlementthreejsmodel.html" width="100%" height="100%" frameborder="0">
+			Ваш браузер не поддерживает плавающие фреймы!
+		</iframe>
+	</div>
+	
+	<div id="Print" class="tabcontent"> <!--http://htmlbook.ru/faq/kak-razmestit-neskolko-kartinok-ryadom-po-gorizontali-->
+	<style>
+	.thumb img  {
+    padding: 15px; /* Расстояние от картинки до рамки */
+    background: #666; /* Цвет фона */
+    margin-right: 10px; /* Отступ справа */
+    margin-bottom: 10px; /* Отступ снизу */
+   }</style>
+	  <h2>Здесь вы можете скачать печатные планы</h2>
+		<p class="thumb">
+			<a href="PDFMaps/PrintKurgansA0.pdf"><img src="img/PrintKurgansA0.jpg" alt="" width="30%"></a>
+			<a href="PDFMaps/PrintKurgansA1.pdf"><img src="img/PrintKurgansA1.jpg" alt="" width="30%"></a>
+			<a href="PDFMaps/PrintLabrisA1.pdf"><img src="img/PrintLabrisA1.jpg" alt="" width="30%"></a>
+			</p>
+	</div>
+
+		<script>
+		function openPage(pageName,elmnt,color) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablink");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].style.backgroundColor = "";
+			}
+			document.getElementById(pageName).style.display = "block";
+			elmnt.style.backgroundColor = color;
+
+		}
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+		</script>
+		
+			<script>
+				//Map coordinating//
+				var map = L.map('map').setView([58.149387, 52.732561], 18);
+				
+				map.setMaxZoom(24);
+				
+				//https://devdocs.io/leaflet~1.8/ Задать уровни появления слоёв, искать на странцие Map Panes//
+				map.createPane('q');
+				map.getPane('q').style.zIndex = 310;
+				map.getPane('q').style.pointerEvents = 'none';					
+
+				map.createPane('s');
+				map.getPane('s').style.zIndex = 315;
+				map.getPane('s').style.pointerEvents = 'none';	
+				
+				//Загрузка подложек с интернета//
+					//Mapbox_Outdoors_kurgans layer//
+					var Mapbox_Outdoors_kurgans = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/cl8j3je6x002815o59qa0zaeu/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJja21xZnRjcG4wN25oMndtcWFoaTgwbHU0In0.MZ_KaXzPzUaXzqGq1sRZRg', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					pane: 'q'
+					});
+					Mapbox_Outdoors_kurgans.addTo(map);
+					
+					//Mapbox_Kurgans layer//
+					var Mapbox_Kurgans = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/cl45nag9y007414peoza16k3k/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJja21xZnRjcG4wN25oMndtcWFoaTgwbHU0In0.MZ_KaXzPzUaXzqGq1sRZRg', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					pane: 'q'
+					});
+					
+				//Загрузка подложек с компьютера//
+					//Карта 1931 года//
+					var indakar = L.tileLayer('tiles/indakar/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					//Карта 1934 года//
+					var pervomajskoe1934 = L.tileLayer('tiles/pervomajskoe1934/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					//Снимок KH-9 1977 года левый//
+					var keyhole1977left = L.tileLayer('tiles/keyhole1977left/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					//Снимок KH-9 1977 года правый//
+					var keyhole1977right = L.tileLayer('tiles/keyhole1977right/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					var keyhole1977 = L.layerGroup([keyhole1977left, keyhole1977right]);
+					
+					//Оротофото курганов//
+					var orthoforkurgans2017 = L.tileLayer('tiles/orthoforkurgans2017/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					//Оротофото городища//
+					var orthoforlabris2017 = L.tileLayer('tiles/orthoforlabris2017/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					var orthofoto = L.layerGroup([orthoforkurgans2017, orthoforlabris2017]);
+					
+					//Снимок Люфтваффе 1943 крупный левый//
+					var luft1943left = L.tileLayer('tiles/luft1943left/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					//Снимок Люфтваффе 1943 крупный правый//
+					var luft1943right = L.tileLayer('tiles/luft1943right/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					//Снимок Люфтваффе 1944//
+					var luft1944 = L.tileLayer('tiles/luft1944/{z}/{x}/{y}.png', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					tms: true,
+					pane: 's'
+					});
+					
+					//Карта четвертичных отложений//
+					var Chetvertiniemap = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/cl4hia8el000p15qwydkwo3xm/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJja21xZnRjcG4wN25oMndtcWFoaTgwbHU0In0.MZ_KaXzPzUaXzqGq1sRZRg', {
+					attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
+					pane: 's'
+					});
+					
+					
+					var plan1 = L.imageOverlay('img/1_rotated.png', [[45.1347548500000002, 37.4759014879999981],[45.1335624120000034, 37.4742072720000010]],{ opacity: 1 });
+					var plan2 = L.imageOverlay('img/2_rotated.png', [[45.1367109130000017, 37.4779145810000003],[45.1361898930000009, 37.4771542760000003]],{ opacity: 1 });
+					var plan3 = L.imageOverlay('img/3_rotated.png', [[45.1363080759999988, 37.4782608630000027],[45.1357507069999997, 37.4774267729999977]],{ opacity: 1 });
+					var plan4 = L.imageOverlay('img/4_rotated.png', [[45.1361559870000022, 37.4792211990000013],[45.1352190730000018, 37.4779190539999973]],{ opacity: 1 });
+					var plan5 = L.imageOverlay('img/5_rotated.png', [[45.1353935930000034, 37.4800919480000019],[45.1345926380000009, 37.4791066940000022]],{ opacity: 1 });
+					var plan6 = L.imageOverlay('img/6_rotated.png', [[45.1352752089999996, 37.4812167369999969],[45.1346133959999989, 37.4803034239999988]],{ opacity: 1 });
+					var plan7 = L.imageOverlay('img/7_rotated.png', [[45.1346972500000021, 37.4825138550000005],[45.1337868199999974, 37.4812795400000027]],{ opacity: 1 });
+					var plans = L.layerGroup([plan1, plan2, plan3, plan4, plan5, plan6, plan7]);
+
+				//Layer controller//
+				var baseMaps = {
+				"C подложкой": Mapbox_Outdoors_kurgans
+				};
+
+				var overlays = {
+				"Топоплан": indakar
+				};
+				
+				//https://leafletjs.com/examples/custom-icons///
+				var blackIcon = L.icon({iconUrl: 'img/BlackKurgan.svg',iconSize: [12, 12]});
+				var greenIcon = L.icon({iconUrl: 'img/GreenKurgan.svg',iconSize: [12, 12]});
+				var redIcon = L.icon({iconUrl: 'img/RedKurgan.svg',iconSize: [12, 12]});
+				
+				var marker1 = L.marker([45.136486904214202, 37.477496757324879], {icon: blackIcon}).bindPopup("Курган №2. Хорошо различимый сейчас");
+				var marker2 = L.marker([45.136042376530405, 37.477787985555864], {icon: blackIcon}).bindPopup("Курган №3. Хорошо различимый сейчас");
+				var marker3 = L.marker([45.135712083889892, 37.47856060312229], {icon: blackIcon}).bindPopup("Курган №4. Хорошо различимый сейчас");
+				var marker4 = L.marker([45.13517147055942, 37.479634794490508], {icon: blackIcon}).bindPopup("Курган №5. Хорошо различимый сейчас");
+				var marker5 = L.marker([45.134966727409768, 37.480752397046182], {icon: blackIcon}).bindPopup("Курган №6. Хорошо различимый сейчас");
+				var marker6 = L.marker([45.134354711354725, 37.481963796090987], {icon: blackIcon}).bindPopup("Курган №7. Хорошо различимый сейчас");
+				var marker7 = L.marker([45.134201298934961, 37.475019946864251], {icon: blackIcon}).bindPopup("Курган №1. Хорошо различимый сейчас");
+				var marker8 = L.marker([45.123724635982235, 37.495488899301549], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: карта 1934 года и снимок KH-9 1977 года.");
+				var marker9 = L.marker([45.123343418809057, 37.490740633014219], {icon: blackIcon}).bindPopup("Хорошо различимый сейчас. Также отлично виден на снимке KH-9 1977 года.");
+				var marker10 = L.marker([45.12623721059397, 37.492319175952893], {icon: greenIcon}).bindPopup("Разрушенный, виден в рельефе. Хорошо виден на современных ортофотоснимках. То, что это скорее всего курган можно проследить на снимке Люфтваффе 1944 года и снимке KH-9 1977 года.");
+				var marker11 = L.marker([45.124441481445864, 37.49115323730949], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: карты 1931 и 1934 годов. Выделяется по цвету и сейчас и на снимке Люфтваффе 1944 года.");
+				var marker12 = L.marker([45.133167621972632, 37.478042184420268], {icon: greenIcon}).bindPopup("Разрушенный, виден в рельефе. Хорошо виден на современных ортофотоснимках.");
+				var marker13 = L.marker([45.123584109873377, 37.496121287620802], {icon: blackIcon}).bindPopup("Хорошо различимый сейчас. Также отлично виден на снимке KH-9 1977 года.");
+				var marker14 = L.marker([45.127743666417445, 37.494321390230269], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: карта 1934 и карта 1941 годов. Более точное расположение было определено по снимку Люфтваффе 1944 года.");
+				var marker15 = L.marker([45.13710417909013, 37.501338411168518], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: Коровина А. К. 1957. К вопросу об изучении Семибратних курганов //СА. № 2. С. 174 – 187. Согласно исследованиям Тизенгаузена сразу за западныи рвом Семибратнего городища расположено 7 малых курганов. На снимке Люфтваффе 1944 года можно увидеть 6 контуров, напоминающих курганы.");
+				var marker16 = L.marker([45.136787775485836, 37.501538877227745], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: Коровина А. К. 1957. К вопросу об изучении Семибратних курганов //СА. № 2. С. 174 – 187. Согласно исследованиям Тизенгаузена сразу за западныи рвом Семибратнего городища расположено 7 малых курганов. На снимке Люфтваффе 1944 года можно увидеть 6 контуров, напоминающих курганы.");
+				var marker17 = L.marker([45.132655643061071, 37.474101494337319], {icon: greenIcon}).bindPopup("Разрушенный, виден в рельефе. Можно увидеть на соверменном космическом снимке");
+				var marker18 = L.marker([45.137456156539237, 37.501419111970307], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: Коровина А. К. 1957. К вопросу об изучении Семибратних курганов //СА. № 2. С. 174 – 187. Согласно исследованиям Тизенгаузена сразу за западныи рвом Семибратнего городища расположено 7 малых курганов. На снимке Люфтваффе 1944 года можно увидеть 6 контуров, напоминающих курганы.");
+				var marker19 = L.marker([45.138742535846845, 37.500565889183505], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: Коровина А. К. 1957. К вопросу об изучении Семибратних курганов //СА. № 2. С. 174 – 187. Согласно исследованиям Тизенгаузена сразу за западныи рвом Семибратнего городища расположено 7 малых курганов. На снимке Люфтваффе 1944 года можно увидеть 6 контуров, напоминающих курганы.");
+				var marker20 = L.marker([45.137615467365137, 37.500849551095961], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: Коровина А. К. 1957. К вопросу об изучении Семибратних курганов //СА. № 2. С. 174 – 187. Согласно исследованиям Тизенгаузена сразу за западныи рвом Семибратнего городища расположено 7 малых курганов. На снимке Люфтваффе 1944 года можно увидеть 6 контуров, напоминающих курганы.");
+				var marker21 = L.marker([45.1380103373127, 37.501015062075943], {icon: redIcon}).bindPopup("Разрушенный, не виден в рельефе сейчас. Источник: Коровина А. К. 1957. К вопросу об изучении Семибратних курганов //СА. № 2. С. 174 – 187. Согласно исследованиям Тизенгаузена сразу за западныи рвом Семибратнего городища расположено 7 малых курганов. На снимке Люфтваффе 1944 года можно увидеть 6 контуров, напоминающих курганы.");
+				
+				var interactiveicons = L.layerGroup([marker1,marker2,marker3,marker4,marker5,marker6,marker7,marker8,marker9,marker10,marker11,marker12,marker13,marker14,marker15,marker16,marker17,marker18,marker19,marker20,marker21]).addTo(map);
+				
+				var overlayMaps = {
+				"Интерактивные значки курганов": interactiveicons
+				};
+				
+				var nonMaps = {
+				
+				};
+				
+				var ControlLayers = L.control.layers(baseMaps, overlays).addTo(map);
+				var ControlLayers1 = L.control.layers(nonMaps, overlayMaps).addTo(map);
+				var ControlScale = L.control.scale().addTo(map);
+				
+				//Найти моё расположение
+				L.control.locate({flyTo: true}).addTo(map);	
+				
+
+		</script>
+</body>
+</html> 
+
+
+
