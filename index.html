@@ -1,0 +1,231 @@
+<!DOCTYPE html> <!-- Объявление формата документа -->
+<html lang="ru">
+<head> <!-- Техническая информация о документе -->
+    <meta charset="UTF-8"> <!-- Определяем кодировку символов документа -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Определение области просмотра под все форматы -->
+    <title>Иднакар</title> <!-- Задаем заголовок документа -->
+    <link href="favicon/favicon.ico" rel="shortcut icon" type="image/x-icon"> <!-- Путь к фавикону -->
+    
+			<link rel="stylesheet" type="text/css" href="style.css"> <!-- Подключаем внешнюю таблицу стилей -->
+            <link rel="stylesheet" type="text/css" href="css/mainpage.css"> <!-- Подключаем внешнюю таблицу стилей -->
+            <link rel="stylesheet" type="text/css" href="css/maaap.css"> <!-- Подключаем внешнюю таблицу стилей -->
+			<link rel="stylesheet" type="text/css" href="css/models.css"> <!-- Подключаем внешнюю таблицу стилей -->
+
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!-- Подключаем Leaflet -->
+                <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Подключаем Leaflet -->
+                    <!-- нахождение геолокации https://github.com/domoritz/leaflet-locatecontrol -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.1/dist/L.Control.Locate.min.css" />
+                    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.1/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+                    <!-- нахождение координат https://leafletjs.com/plugins.html#mouse-coordinates = https://github.com/MrMufflon/Leaflet.Coordinates -->
+                    <link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css"/>
+                    <script src="js/Leaflet.CoordinatesOnClick-0.1.5.src.js"></script>
+</head>
+<body> <!-- Основная часть документа -->
+    <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">Главная</button>
+    <button class="tablink" onclick="openPage('MAAAP', this)">Карта</button>
+    <button class="tablink" onclick="openPage('Models', this)">Модели</button>
+
+    <div id="Home" class="tabcontent">
+        <img id="id_preview" src="images/preview.png" alt="Иллюстрация">
+	  	<div class="line1-box">
+			<div class="line1">
+				История
+			</div>
+		</div>
+
+		<div class="paragraph01" style="display: inline-flex;">
+			<div class="paragraph1">
+				<p>
+				Данный сайт посвящён Междисциплинарной экспедиции МИИГАиК на «Городище Иднакар», которая состоялась в рамках программы «Открываем Россию заново» с 28.09.22 по 02.10.22<br><br>
+				В экспедицию отправилось 10 студентов четырёх направлений университета: геодезисты, фотограмметристы, картографы и архитекторы под руководством двух преподавателей: Скрыпицыной Т.Н. и Листкова Н.С.<br><br>
+				Экспедиция продлилась 7 дней и включала: 5 дней работ на городище и в <a href="https://иднакар.рф/">музее «Иднакар»</a> и 2 дня знакомства с местной культурой и бытом республики Удмуртия.
+				</p>
+			</div><img src="images/zhizha.png" alt="Иллюстрация" width="15%" height="15%">
+		</div>
+
+		<div class="photos">
+			<a><img src="images/img1.jpg" alt="" class="scale"></a>
+			<a><img src="images/img2.jpg" alt="" class="scale"></a>
+			<a><img src="images/img3.jpg" alt="" class="scale"></a>
+			<a><img src="images/img4.jpg" alt="" class="scale"></a>	
+			<a><img src="images/img5.jpg" alt="" class="scale"></a>
+			<a><img src="images/img6.jpg" alt="" class="scale"></a>	
+			<a><img src="images/img7.jpg" alt="" class="scale"></a>
+			<a><img src="images/img8.jpg" alt="" class="scale"></a>
+		</div>
+
+		<div class="paragraph02" style="display: inline-flex;">
+			<img src="images/zhuzha.png" alt="Иллюстрация" width="10%" height="10%">
+			<div class="paragraph2">
+				<p>
+				Работа велась как непосредственно в музее-заповеднике "Иднакар", так и по возвращении в Москву.<br><br>
+				О том как прошла экспедиция, какие работы были проведены и какие впечатления получили студенты можно узнать ниже в разделе Результаты.<br><br>
+				В том же разделе, а также во вкладках "Карта" и "Модели" представлены итоги, полученные по результатам камеральной обработки полевых работ.<br><br>
+				</p>
+			</div>
+		</div>
+		<div class="line2-box">
+			<div class="line2">
+				Участники Экспедиции
+			</div>
+		</div>
+
+		<div class="container_photos_people">
+		<ul class="image-gallery">
+			<li>
+			<img src="images/skripitsina.jpg" alt="Скрыпицына Т.Н." />
+			<div class="overlay"><span>Скрыпицына Т.Н.<br>к.т.н., доцент кафедры Фотограмметрии<br></span></div>
+			</li>
+			<li>
+			<img src="images/listkov.jpg" alt="Листков Н.С." />
+			<div class="overlay"><span>Листков Н.С.<br>ст. преподаватель кафедры Геодезии<br></span></div>
+			</li>
+			<li>
+			<img src="images/falkov.jpg" alt="Фальков Данил" />
+			<div class="overlay"><span>Фальков Данил<br>Геодезист<br>Пикетаж, съёмка местности</span></div>
+			</li>
+			<li>
+			<img src="images/smirnov.jpg" alt="Смирнов Евгений" />
+			<div class="overlay"><span>Смирнов Евгений<br>Фотограмметрист<br>Съёмка местности с БПЛА</span></div>
+			</li>
+			<li>
+			<img src="images/kochneva.jpg" alt="Кочнева Дарья" />
+			<div class="overlay"><span>Кочнева Дарья<br>Фотограмметрист<br>Создание моделей местности</span></div>
+			</li>
+			<li>
+			<img src="images/burdasov.jpg" alt="Бурдасов Александр" />
+			<div class="overlay"><span>Бурдасов Александр<br>Картограф<br>Организатор в штатском</span></div>
+			</li>
+			<li>
+			<img src="images/moiseenko.jpg" alt="Мойсеенко Кирилл - лучший декодер" />
+			<div class="overlay"><span>Мойсеенко Кирилл<br>Картограф<br>Повсеместная помощь</span></div>
+			</li>
+			<li>
+			<img src="images/komova.jpg" alt="" />
+			<div class="overlay"><span>Комова Александра<br>Картограф<br>"О, это же раскопка!"</span></div>
+			</li>
+			<li>
+			<img src="images/murashova.jpg" alt="" />
+			<div class="overlay"><span>Мурашова Ирина<br>Картограф<br>Главный по отчётам</span></div>
+			</li>
+			<li>
+			<img src="images/soskov.jpg" alt="Сосков Илья" />
+			<div class="overlay"><span>Сосков Илья<br>Картограф<br>Ответственный за веб</span></div>
+			</li>
+			<li>
+			<img src="images/kruhmaleva.jpg" alt="Крухмалева Варвара" />
+			<div class="overlay"><span>Крухмалева Варвара<br>Архитектор<br>Создание 3D моделей, дизайн плакатов<span></div>
+			</li>
+			<li>
+			<img src="images/kiruhina.jpg" alt="Кирюхина Анастасия" />
+			<div class="overlay"><span>Кирюхина Анастасия<br>Архитектор<br>Изучение деревянного зодчества и создание 3D моделей</span></div>
+			</li>
+		</ul>
+		</div>
+
+		<div class="line1-box">
+			<div class="line1">
+				Результаты
+			</div>
+		</div>
+
+		<div class="container_pdf">
+			<ul class="pdf-gallery">
+				<li>
+				<a href="pdf/stendy13.pdf"><img src="pdf/stendy13.jpg" alt="pdf-файл о том как прошла экспедиция" ></a>
+				<div class="overlay_pdf"><span>Как прошла экспедиция</span></div>
+				</li>
+				<li>
+				<a href="pdf/stendy5.pdf"><img src="pdf/stendy5.jpg" alt="pdf-файл о результатах работы фотограмметристов" ></a>
+				<div class="overlay_pdf"><span>Фотограмметристы</span></div>
+				</li>
+				<li>
+				<a href="pdf/stendy4.pdf"><img src="pdf/stendy4.jpg" alt="pdf-файл о результатах работы картографов" ></a>
+				<div class="overlay_pdf"><span>Картографы</span></div>
+				</li>
+				<li>
+				<a href="pdf/stendy67.pdf"><img src="pdf/stendy67.jpg" alt="pdf-файл о результатах работы архитекторов" ></a>
+				<div class="overlay_pdf"><span>Архитекторы</span></div>
+				</li>
+			</ul>
+		</div>
+
+		<div id="id_mountain">
+			<img src="images/mountain.png" alt="Иллюстрация" width="100%" height="100%" align="center">
+			<div class="id_mountain_text_1">Made by Ilya Soskov</div>
+			<div class="id_mountain_text_2">MIIGAIK 2023</div>				
+		</div>		
+    </div>
+      
+      <!-- Вкладка "Карта" -->
+      <div id="MAAAP" class="tabcontent">
+        <div id="map"></div>
+      </div>
+      
+      <!-- Вкладка "Модели" -->
+      <div id="Models" class="tabcontent">
+        <link rel="stylesheet" href="css/menu.css">
+		<div class="burger-menu">
+			<a href="#" class="burger-menu_button">
+				<span class="burger-menu_lines"></span>
+			</a>
+			<nav class="burger-menu_nav"> <!-- Место для ссылок-->
+			<a href="#section-1" class="burger-menu_link">Кладовая</a> <!-- Ссылка на блок-->
+			<a href="#section-2" class="burger-menu_link">Жилой дом</a>
+			<a href="#section-3" class="burger-menu_link">Кузница</a>
+			<a href="#section-4" class="burger-menu_link">Модель городища</a>
+			</nav>
+			<div class="burger-menu_overlay"></div>
+		</div>
+		
+		<div id="section-1">
+			<iframe src="3d/kladovaya.html" width="100%" height="100%" frameborder="0">Ваш браузер не поддерживает плавающие фреймы!</iframe>
+		</div>
+		<div id="section-2">
+			<iframe src="3d/zhiloydom.html" width="100%" height="100%" frameborder="0">Ваш браузер не поддерживает плавающие фреймы!</iframe>
+		</div>
+		<div id="section-3">
+			<iframe src="3d/kuznitsa.html" width="100%" height="100%" frameborder="0">Ваш браузер не поддерживает плавающие фреймы!</iframe>
+		</div>
+		<div id="section-4">
+			<a href="images/reconstruction.jpg"><img src="images/icon_download.svg" id="reconstruction_download" alt="pdf-файл о результатах работы архитекторов" title="Скачать jpg"></a>
+			<video width="100%" height="80%" controls autoplay loop playsinline>
+				<source src="video/video_3_slowed.mp4" type="video/mp4">
+				<source src="video/video_3_slowed.webm" type="video/webm">
+				Your browser does not support the video or formats.
+			  </video>
+			 
+			</div>
+      </div>
+
+    <!-- Плавающая кнпока https://snipp.ru/jquery/up-down#link-knopka-vniz -->
+    <a href="#" id="scroll_top" title="Наверх"></a>
+
+     <!-- Подключаем внешние js-файлы -->
+      <script src="script.js"></script> <!-- Основной js, для верхних вкладок -->
+      <script src="js/maaap.js"></script> <!-- Подключаем код на Leaflet для вкладки "Карта" -->
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Подключаем Jquery для работы burger-menu и плавающей кнопки -->
+      <script src="js/menu.js"></script> <!-- Подключаем Jquery для работы burger-menu -->
+      <!-- Плавающая кнпока -->
+      <script src="js/flowbutton.js"></script> <!-- JS для работы плавающей кнопки наверх -->
+
+      <!-- Переопределение переменных для plugins/Leaflet.Coordinates-0.1.5.css -->
+      <script>
+        L.control.coordinates({
+        position:"bottomleft", //optional default "bottomright" //расположение элемента
+        decimals:9, //optional default 4 //точность координат после запятой при копировании
+        decimalSeperator:".", //optional default "."
+        labelTemplateLat:"Latitude: {y}", //optional default "Lat: {y}"
+        labelTemplateLng:"Longitude: {x}", //optional default "Lng: {x}"
+        enableUserInput:true, //optional default true
+        useDMS:false, //optional default false
+        useLatLngOrder: true, //ordering of labels, default false-> lng-lat
+        markerType: L.marker, //optional default L.marker
+        markerProps: {}, //optional default {},
+        labelFormatterLng : function(lng){return lng+" lng"}, //optional default none,
+        labelFormatterLat : function(lat){return lat+" lat"}, //optional default none
+        }).addTo(map);
+        </script>
+</body>
+</html>
