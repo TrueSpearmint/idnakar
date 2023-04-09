@@ -1,0 +1,97 @@
+/* Сама кнопка */
+.burger-menu_button {
+    position: fixed; /* Чтобы кнопка всегда была на одном месте */
+    top: 87.0px; /* Отступ сверху */
+    left: 20px; /* Отступ слева */
+    width: 26px; /* Ширина элемента */
+    height: 26px; /* Высота элемента */
+    cursor: pointer; /*Устанавливает форму курсора, когда он находится в пределах элемента */
+    z-index: 30; /* Кнопка выше бэкграунда и открытого меню */
+}
+
+/* Общий стиль для линий в кнопке */
+.burger-menu_lines,
+.burger-menu_lines::after,
+.burger-menu_lines::before {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Толщина линий */
+    background-color: #616161; /* Цвет линий */
+    transition-duration: 0.25s; /* Скорость превращения линий в крест */
+}
+
+/* Верхняя линия */
+.burger-menu_lines::before {
+    content: ''; /* Для отображения линии. Если вписать значения, то будут над линией */
+    top: -8px; /* Отступ от средней */
+}
+
+/* Нижняя линия */
+.burger-menu_lines::after {
+    content: ''; /* Для отображения линии. Если вписать значения, то будут под линией */
+    top: 8px; /* Отступ от средней */
+}
+
+/* Верхняя и нижняя перемещаются в центр и поворачиваются, образуя крест */
+.burger-menu_active .burger-menu_lines {
+    transform: rotate(45deg); /* Поворот всех линий на 45 градусов */
+}
+.burger-menu_active .burger-menu_lines::before {
+    top: 0; /* Совместить верхнюю линию со средней */
+}
+.burger-menu_active .burger-menu_lines::after {
+    top: 0;
+    transform: rotate(90deg); /* Поворот нижней линии на 90 градусов */
+}
+
+.burger-menu_nav {
+    padding-top: 52px; /* Отступ от креста меню. Минимум: 26 (как и размер кнопки), чтобы ссылки не наежали на неё */
+    display: block;
+    position: fixed; /* Чтобы меню всегда открывалось у кнопки в любой части страницы */
+    top: 69px; /* отступ меню от кнопки */
+    left: -100%;
+    width: 200px; /* Ширина меню */
+    height: auto; /* Высота меню */
+    margin: 0;
+    list-style: none;
+    background-color: #ECEFF1; /* Цвет меню */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Тень от меню */
+    transition-duration: 0.25s; /* Скорость открытия меню */
+    overflow-y: auto; /* Возможность прокуритки по вертикали */
+    z-index: 20; /* Меню выше бэкграунда и ниже кнопки */
+}
+
+.burger-menu_active .burger-menu_nav {
+    left: 0 !important; /* Без этого меню не появляется. "Смещение когда меню активно?" */
+}
+
+/* Оформление ссылок */
+.burger-menu_link {
+    display: block;
+    padding: 12px 24px; /* Отступ сверху и снизу, слева и справа */
+    color: #333; /* Цвет текста */
+    font-family: 'Roboto', sans-serif; /* Шрифт текста */
+    font-size: 20px; /* Размер шрифта */
+    font-weight: 600; /* Насыщенность шрифта */
+    text-decoration: none; /* Отменяет все эффекты перечёркивания текста */
+    transition-duration: 0.25s; /* Скорость с которой к тексту применяются свойства  */
+}
+/* Оформление эффекта наведения на ссылку */
+.burger-menu_link:hover {
+    background-color: #CFD8DC;
+}
+
+/* Для закрытия бургер-меню по нажатию на область контейнера */
+.burger-menu_overlay {
+display: none; /* Изначально блок скрыт */
+position: fixed;
+top: 0; /* Отступ сверху */
+left: 0; /* Отступ слева */
+width: 100vw; /* Ширина элемента */
+height: 100vh; /* Высота элемента */
+z-index: 10; /* Находится под блоком с навигацией именю */
+}
+.burger-menu_active .burger-menu_overlay {
+display: block;
+}

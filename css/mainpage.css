@@ -1,0 +1,248 @@
+/* Фото Иднакара первая. Чтобы автоматически масштабировалось взял с сайта https://anacondaz.ru/ */
+#id_preview{
+	width: 100%;
+    height: 95vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Надпись #1 История и полоска под ней */
+.line1-box{
+	padding: 4% 0px 0px 0px;
+	margin-left: 50%;
+	position: relative;
+}
+.line1-box:after{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: #C8AE6F;
+}
+.line1{
+	font-family: Verdana,Geneva,sans-serif; 
+	font-weight: bold;
+	text-align:left;
+	color: #C8AE6F;
+	font-size: 25px;
+}
+
+/* Блок текста №1 */
+.paragraph01 {
+	padding: 1% 0px 4% 0px;
+	overflow: hidden
+}
+.paragraph01-paragraph1 {
+	padding: 0px 10% 0px 13%;
+}
+.paragraph1 {
+	padding: 0px 10% 0px 13%;
+	text-align:justify;
+	font-family: Verdana,Geneva,sans-serif; 
+	font-size: 23px;
+	text-indent: 25px;
+	display: flex; /* Чтобы картинка и текст были на одной линии */
+	justify-content: center; /* Чтобы картинка и текст были на одной линии */
+	align-items: center; /* Чтобы картинка и текст были на одной линии */
+}
+
+/* Блок фотографий*/
+.photos {                         /* расположение блока */
+	text-align: center;
+	padding: 50px 0px 50px 0px; /* top | right | bottom | left */
+	overflow: hidden; 
+	background-color: rgba(249, 223, 168, 0.2);
+}
+.photos a {              
+	width: 25%;                /* отвечает за кол-во фоток в ряд */
+	display: block;
+	float: left;
+	line-height: 0;
+}
+.photos img {          /* Размер фоток */
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+	aspect-ratio: 16/10;
+}
+.photos a:hover{     /* стиль для появления тени */
+    color: #111; 
+    background: black; 
+    box-shadow: 0 0 50px black; 
+}
+.scale {            /* стиль для увеличения картинок */
+    transition: 1s; /* Время эффекта */
+   }
+.scale:hover {
+    transform: scale(1.2); /* Увеличиваем масштаб */
+}
+   
+.paragraph02 {
+	padding: 4% 0px 4% 0px; /* Отступы сверху, снизу и слева, справа */
+}
+.paragraph02-paragraph2 {
+	padding: 0px 13% 0px 10%;
+}
+.paragraph2 {
+	padding: 0px 13% 0px 10%;
+	text-align: justify;
+	font-family: Verdana,Geneva,sans-serif; 
+	font-size: 23px;
+	display: flex; /* Чтобы картинка и текст были на одной линии */
+	justify-content: center; /* Чтобы картинка и текст были на одной линии */
+	align-items: center; /* Чтобы картинка и текст были на одной линии */
+}
+
+/* Надпись #2 Участники и полоска под ней */
+.line2-box{
+	padding-right: 50%;
+	position: relative;
+}
+.line2-box:after{
+	content: "";
+	position: absolute;
+	width: 50%;
+	height: 2px;
+	background-color: #C8AE6F;
+}
+.line2{
+	font-family: Verdana,Geneva,sans-serif; 
+	font-weight: bold;
+	text-align:right;
+	color: #C8AE6F;
+	font-size: 25px;
+}
+
+/* Responsive image gallery https://by9sfe.csb.app/ и https://blog.logrocket.com/responsive-image-gallery-css-flexbox/ */
+.container_photos_people {
+	padding: 1% 10% 4% 10%; /* Отступы сверху, снизу и слева, справа */
+}
+ul {
+	list-style: none; /* Отменяет маркеры для списка */
+	padding-inline-start: 0px; /* Убирает базовый для списков отступ слева */
+}
+.image-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px; /* Расстояние между фотографиями */
+}
+.image-gallery > li {
+	flex-basis: 200px; /* = width: 200px; */
+	position: relative;
+}
+/*.image-gallery::after {
+	content: "";
+	flex-basis: 200px;
+}*/
+.image-gallery li img {
+	object-fit: cover;
+	max-width: 100%;
+	height: auto;
+	aspect-ratio: 3/4; /* Ширина к высоте */
+	vertical-align: middle;
+	border-radius: 25px;  /* Скругление фотографий */
+}
+.overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(57, 57, 57, 0.502);
+	top: 0;
+	left: 0;
+	transform: scale(0);
+	transition: all 0.2s 0.1s ease-in-out;
+	color: #fff;
+	text-align: center;
+	border-radius: 25px;
+	/* center overlay text */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+  .image-gallery li:hover .overlay {
+	transform: scale(1);
+}
+
+/* Блок pdf */
+.container_pdf {
+	padding: 1% 10% 1% 10%; /* Отступы сверху, снизу и слева, справа */
+}
+ul {
+	list-style: none; /* Отменяет маркеры для списка */
+	padding-inline-start: 0px; /* Убирает базовый для списков отступ слева */
+}
+.pdf-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px; /* Расстояние между фотографиями */
+}
+.pdf-gallery > li {
+	flex-basis: 300px; /* = width: 300px; */
+	position: relative;
+	cursor: alias;
+} 
+/*.pdf-gallery::after {
+	content: "";
+	flex-basis: 240px;
+}*/
+.pdf-gallery li img {
+	object-fit: cover;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	padding: 10px; /* Расстояние от картинки до рамки */
+	background: #666; /* Цвет фона */
+}
+.overlay_pdf {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(57, 57, 57, 0.502);
+	top: 0;
+	left: 0;
+	transform: scale(0);
+	transition: all 0.2s 0.1s ease-in-out;
+	color: #fff;
+	text-align: center;
+	/* center overlay text */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pdf-gallery li:hover .overlay_pdf {
+	transform: scale(1);
+}
+
+/* Гора внизу */
+#id_mountain{
+	position: relative;
+}
+/* Прозрачность горы внизу */
+#id_mountain img{
+	opacity: 0.5;
+}
+
+/* Текст на горе внизу слева */
+.id_mountain_text_1{
+	position: absolute;
+	bottom: 3%; /* Отступ снизу относительно картинки */
+	left: 5%; /* Отступ слева относительно картинки */
+	font-family: Verdana,Geneva,sans-serif; 
+	color: white;
+	font-size: 100%;
+}
+
+/* Текст на горе внизу справа */
+.id_mountain_text_2{
+	position: absolute;
+	bottom: 3%; /* Отступ снизу относительно картинки */
+	right: 5%; /* Отступ справа относительно картинки */
+	font-family: Verdana,Geneva,sans-serif; 
+	color: white;
+	font-size: 100%;
+}

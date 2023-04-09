@@ -1,0 +1,8 @@
+/* CSS стиль раздела "Карта" */
+/* Без этого leaflet не подгрузится */
+#map {position: absolute;
+    left: 0px;
+    right:0px;
+    top: 69.0px; /* отступ от верхнего меню */
+    bottom: 0px;
+}
