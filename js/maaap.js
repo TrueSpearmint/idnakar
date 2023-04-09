@@ -133,6 +133,8 @@ var baseMaps = {
 };
 
 var overlays = {
+  "С подложкой": Mapbox_Outdoors_Idnakar,
+  "Без подложки": Mapbox_Idnakar,
   "Современный снимок": Mapbox_Satellite,
   "Снимок 1965 года": keyhole_dzb,
   "Снимок 1975 года": keyhole_d3c,
@@ -142,9 +144,7 @@ var overlays = {
   "Топоплан 1:2000": topoplan,
   "Топоплан 1:600": topoplan600,
   "Разграфка": razgrafka,
-  "Отчёты": otcheti,
-  "Без подложки": Mapbox_Idnakar,
-  "С подложкой": Mapbox_Outdoors_Idnakar
+  "Отчёты": otcheti
 };
 
 var ControlLayers = L.control.layers(baseMaps, overlays).addTo(map);
