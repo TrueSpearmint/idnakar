@@ -54,8 +54,8 @@ body, html {
 .tabcontent {
   color: black;
   display: none;
-  background: linear-gradient(to top, #FFFFFF, #FFFFFF);
-  background-color: #FFFFFF;  /*Для старых браузеров */
+  background: linear-gradient(to top, #FEFCED, #FFFFFF);
+  background-color: #fefcea;  /*Для старых браузеров */
 }
 
 /* Плавающая кнпока https://snipp.ru/jquery/up-down#link-knopka-vniz */
