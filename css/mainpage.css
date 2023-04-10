@@ -41,6 +41,7 @@
 .paragraph1 {
 	padding: 0px 10% 0px 13%;
 	text-align:justify;
+	text-align-last:left;
 	font-family: Verdana,Geneva,sans-serif; 
 	font-size: 23px;
 	text-indent: 25px;
@@ -89,6 +90,7 @@
 .paragraph2 {
 	padding: 0px 13% 0px 10%;
 	text-align: justify;
+	text-align-last:left;
 	font-family: Verdana,Geneva,sans-serif; 
 	font-size: 23px;
 	display: flex; /* Чтобы картинка и текст были на одной линии */
