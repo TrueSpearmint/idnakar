@@ -53,10 +53,10 @@
 
 		<div class="photos">
 			<a><img src="images/img1.jpg" alt="" class="scale"></a>
-			<a><img src="images/img2.jpg" alt="" class="scale"></a>
-			<a><img src="images/img3.jpg" alt="" class="scale"></a>
-			<a><img src="images/img4.jpg" alt="" class="scale"></a>	
-			<a><img src="images/img5.jpg" alt="" class="scale"></a>
+			<a><img src="images/img1_240.jpg" alt="" class="scale"></a>
+			<a><img src="images/img1_480.jpg" alt="" class="scale"></a>
+			<a><img src="images/img1.jpg" srcset="images/img1_1080.jpg 1080w, images/img1_480.jpg 480w, images/img1_240.jpg 240w" sizes="50vw">
+			<a><img src="images/img1_1080.jpg" alt="" class="scale"></a>
 			<a><img src="images/img6.jpg" alt="" class="scale"></a>	
 			<a><img src="images/img7.jpg" alt="" class="scale"></a>
 			<a><img src="images/img8.jpg" alt="" class="scale"></a>
@@ -81,51 +81,99 @@
 		<div class="container_photos_people">
 		<ul class="image-gallery">
 			<li>
-			<img src="images/skripitsina.jpg" alt="Скрыпицына Т.Н." />
+			<picture>
+				<source type="image/webp" srcset="images/skripitsina.webp">
+				<source type="image/jpeg" srcset="images/skripitsina.jpg">
+				<img src="images/skripitsina.jpg" alt="Скрыпицына Т.Н.">
+			</picture>
 			<div class="overlay"><span>Скрыпицына Т.Н.<br>к.т.н., доцент кафедры Фотограмметрии<br></span></div>
 			</li>
 			<li>
-			<img src="images/listkov.jpg" alt="Листков Н.С." />
+			<picture>
+				<source type="image/webp" srcset="images/listkov.webp">
+				<source type="image/jpeg" srcset="images/listkov.jpg">
+				<img src="images/listkov.jpg" alt="Листков Н.С.">
+			</picture>
 			<div class="overlay"><span>Листков Н.С.<br>ст. преподаватель кафедры Геодезии<br></span></div>
 			</li>
 			<li>
-			<img src="images/falkov.jpg" alt="Фальков Данил" />
+			<picture>
+				<source type="image/webp" srcset="images/falkov.webp">
+				<source type="image/jpeg" srcset="images/falkov.jpg">
+				<img src="images/falkov.jpg" alt="Фальков Данил">
+			</picture>
 			<div class="overlay"><span>Фальков Данил<br>Геодезист<br>Пикетаж, съёмка местности</span></div>
 			</li>
 			<li>
-			<img src="images/smirnov.jpg" alt="Смирнов Евгений" />
+			<picture>
+				<source type="image/webp" srcset="images/smirnov.webp">
+				<source type="image/jpeg" srcset="images/smirnov.jpg">
+				<img src="images/smirnov.jpg" alt="Смирнов Евгений">
+			</picture>
 			<div class="overlay"><span>Смирнов Евгений<br>Фотограмметрист<br>Съёмка местности с БПЛА</span></div>
 			</li>
 			<li>
-			<img src="images/kochneva.jpg" alt="Кочнева Дарья" />
+			<picture>
+				<source type="image/webp" srcset="images/kochneva.webp">
+				<source type="image/jpeg" srcset="images/kochneva.jpg">
+				<img src="images/kochneva.jpg" alt="Кочнева Дарья">
+			</picture>
 			<div class="overlay"><span>Кочнева Дарья<br>Фотограмметрист<br>Создание моделей местности</span></div>
 			</li>
 			<li>
-			<img src="images/burdasov.jpg" alt="Бурдасов Александр" />
+			<picture>
+				<source type="image/webp" srcset="images/burdasov.webp">
+				<source type="image/jpeg" srcset="images/burdasov.jpg">
+				<img src="images/burdasov.jpg" alt="Бурдасов Александр">
+			</picture>
 			<div class="overlay"><span>Бурдасов Александр<br>Картограф<br>Организатор в штатском</span></div>
 			</li>
 			<li>
-			<img src="images/moiseenko.jpg" alt="Мойсеенко Кирилл - лучший декодер" />
+			<picture>
+				<source type="image/webp" srcset="images/moiseenko.webp">
+				<source type="image/jpeg" srcset="images/moiseenko.jpg">
+				<img src="images/moiseenko.jpg" alt="Мойсеенко Кирилл - лучший декодер">
+			</picture>
 			<div class="overlay"><span>Мойсеенко Кирилл<br>Картограф<br>Повсеместная помощь, привязка отчётов</span></div>
 			</li>
 			<li>
-			<img src="images/komova.jpg" alt="" />
+			<picture>
+				<source type="image/webp" srcset="images/komova.webp">
+				<source type="image/jpeg" srcset="images/komova.jpg">
+				<img src="images/komova.jpg" alt="Комова Александра">
+			</picture>
 			<div class="overlay"><span>Комова Александра<br>Картограф<br>"О, это же раскопка!", привязка отчётов</span></div>
 			</li>
 			<li>
-			<img src="images/murashova.jpg" alt="" />
+			<picture>
+				<source type="image/webp" srcset="images/murashova.webp">
+				<source type="image/jpeg" srcset="images/murashova.jpg">
+				<img src="images/murashova.jpg" alt="Мурашова Ирина">
+			</picture>
 			<div class="overlay"><span>Мурашова Ирина<br>Картограф<br>Главная по отчётам</span></div>
 			</li>
 			<li>
-			<img src="images/soskov.jpg" alt="Сосков Илья" />
+			<picture>
+				<source type="image/webp" srcset="images/soskov.webp">
+				<source type="image/jpeg" srcset="images/soskov.jpg">
+				<img src="images/soskov.jpg" alt="Сосков Илья">
+			</picture>
 			<div class="overlay"><span>Сосков Илья<br>Картограф<br>Ответственный за веб и привязку материалов</span></div>
 			</li>
 			<li>
-			<img src="images/kruhmaleva.jpg" alt="Крухмалева Варвара" />
+			<picture>
+				<source type="image/webp" srcset="images/kruhmaleva.webp">
+				<source type="image/jpeg" srcset="images/kruhmaleva.jpg">
+				<img src="images/kruhmaleva.jpg" alt="Крухмалева Варвара">
+			</picture>
 			<div class="overlay"><span>Крухмалева Варвара<br>Архитектор<br>Создание 3д-моделей, верстка стендов команды<span></div>
 			</li>
 			<li>
-			<img src="images/kiruhina.jpg" alt="Кирюхина Анастасия" />
+			<picture>
+				<source type="image/webp" srcset="images/kiruhina.webp">
+				<source type="image/jpeg" srcset="images/kiruhina.jpg">
+				<img src="images/kiruhina.jpg" alt="Кирюхина Анастасия">
+			</picture>
 			<div class="overlay"><span>Кирюхина Анастасия<br>Архитектор<br>Создание 3д-моделей, рендерная обработка</span></div>
 			</li>
 		</ul>
@@ -140,19 +188,19 @@
 		<div class="container_pdf">
 			<ul class="pdf-gallery">
 				<li>
-				<a href="pdf/stendy13.pdf" target="_blank"><img src="pdf/stendy13.jpg" alt="pdf-файл о том как прошла экспедиция" ></a>
+				<a href="pdf/stendy13.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy13.webp"><source type="image/jpeg" srcset="pdf/stendy13.jpg"><img src="pdf/stendy13.jpg" alt="pdf-файл о том как прошла экспедиция"></picture></a>
 				<a href="pdf/stendy13.pdf" target="_blank"><div class="overlay_pdf"><span>Как прошла экспедиция</span></div></a>
 				</li>
 				<li>
-				<a href="pdf/stendy5.pdf" target="_blank"><img src="pdf/stendy5.jpg" alt="pdf-файл о результатах работы фотограмметристов" ></a>
+				<a href="pdf/stendy5.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy5.webp"><source type="image/jpeg" srcset="pdf/stendy5.jpg"><img src="pdf/stendy5.jpg" alt="pdf-файл о результатах работы фотограмметристов"></picture></a>
 				<a href="pdf/stendy5.pdf" target="_blank"><div class="overlay_pdf"><span>Фотограмметристы</span></div></a>
 				</li>
 				<li>
-				<a href="pdf/stendy4.pdf" target="_blank"><img src="pdf/stendy4.jpg" alt="pdf-файл о результатах работы картографов" ></a>
+				<a href="pdf/stendy4.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy4.webp"><source type="image/jpeg" srcset="pdf/stendy4.jpg"><img src="pdf/stendy5.jpg" alt="pdf-файл о результатах работы картографов"></picture></a>
 				<a href="pdf/stendy4.pdf" target="_blank"><div class="overlay_pdf"><span>Картографы</span></div></a>
 				</li>
 				<li>
-				<a href="pdf/stendy67.pdf" target="_blank"><img src="pdf/stendy67.jpg" alt="pdf-файл о результатах работы архитекторов" ></a>
+				<a href="pdf/stendy67.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy67.webp"><source type="image/jpeg" srcset="pdf/stendy67.jpg"><img src="pdf/stendy67.jpg" alt="pdf-файл о результатах работы архитекторов"></picture></a>
 				<a href="pdf/stendy67.pdf" target="_blank"><div class="overlay_pdf"><span>Архитекторы</span></div></a>
 				</li>
 			</ul>
