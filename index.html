@@ -1,11 +1,22 @@
 <!DOCTYPE html> <!-- Объявление формата документа -->
 <html lang="ru">
 <head> <!-- Техническая информация о документе -->
+	<title>МИИГАиК Иднакар</title> <!-- Задаем заголовок документа -->
+    <link href="favicon/favicon.ico" rel="shortcut icon" type="image/x-icon"> <!-- Путь к фавикону -->
     <meta charset="UTF-8"> <!-- Определяем кодировку символов документа -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Определение области просмотра под все форматы -->
-    <title>Иднакар</title> <!-- Задаем заголовок документа -->
-    <link href="favicon/favicon.ico" rel="shortcut icon" type="image/x-icon"> <!-- Путь к фавикону -->
+		<meta name="description" content="Экспедиция МИИГАиК на «Городище Иднакар»">  <!-- Краткое описание страинцы -->
+		<meta name="keywords" content="Иднакар, Экспедиция на Иднакар, городище Иднакар, МИИГАиК, Картфак">  <!-- Ключевые слова страинцы -->
+		<meta name="Author" content="Илья Сосков"> <!-- Автор страницы -->
+		<meta name="Address" content="https://vk.com/ilyyuusha"> <!-- Адрес автора -->
+		<meta property="og:locale" content="ru_RU"> <!-- локализация сайта, для русскоязычного сайта ru_RU -->
+		<meta property="og:type" content="article"> <!-- тип контента, по умолчанию используется article -->
+		<meta property="og:title" content="МИИГАиК Иднакар"> <!-- заголовок страницы, который будет выводится в записи социальной сети -->
+		<meta property="og:description" content="Экспедиция МИИГАиК на «Городище Иднакар»"> <!-- описание страницы -->
+		<meta property="og:image" content="images/preview_socialnetworks.jpg"> <!-- ссылка на изображение, которое будет публиковаться в записи -->
+		<meta property="og:url" content="https://kartfak.ru/development/idnakar/"> <!-- ссылка на текущую страницу -->
+		<meta property="og:site_name" content="МИИГАиК Иднакар"> <!-- название сайта -->
     
 			<link rel="stylesheet" type="text/css" href="style.css"> <!-- Подключаем внешнюю таблицу стилей -->
             <link rel="stylesheet" type="text/css" href="css/mainpage.css"> <!-- Подключаем внешнюю таблицу стилей -->
@@ -48,22 +59,53 @@
 				В экспедицию отправилось 10 студентов четырёх направлений университета: геодезисты, фотограмметристы, картографы и архитекторы под руководством двух преподавателей: Скрыпицыной Т.Н. и Листкова Н.С.<br><br>
 				Экспедиция продлилась 7 дней и включала: 5 дней работ на городище и в <a href="https://иднакар.рф/" target="_blank">музее «Иднакар»</a> и 2 дня знакомства с местной культурой и бытом республики Удмуртия.<br><br>
 				</p>
-			</div><img src="images/zhizha.png" alt="Иллюстрация" width="15%" height="15%">
+			</div><img src="images/zhizha.png" source type="image/webp" srcset="images/zhizha.webp" source type="image/jpeg" srcset="images/zhizha.png" alt="Иллюстрация" width="15%" height="15%">
 		</div>
-
 		<div class="photos">
-			<a><img src="images/img1.jpg" alt="" class="scale"></a>
-			<a><img src="images/img1_240.jpg" alt="" class="scale"></a>
-			<a><img src="images/img1_480.jpg" alt="" class="scale"></a>
-			<a><img src="images/img1.jpg" srcset="images/img1_1080.jpg 1080w, images/img1_480.jpg 480w, images/img1_240.jpg 240w" sizes="50vw">
-			<a><img src="images/img1_1080.jpg" alt="" class="scale"></a>
-			<a><img src="images/img6.jpg" alt="" class="scale"></a>	
-			<a><img src="images/img7.jpg" alt="" class="scale"></a>
-			<a><img src="images/img8.jpg" alt="" class="scale"></a>
+				<picture>
+					<source type="image/webp" srcset="images/img1_256.webp 256w, images/img1_780.webp 780w, images/img1_1190.webp 1190w, images/img1_1500.webp 1500w" class="scale">
+					<source srcset="images/img1_256.jpg 256w, images/img1_780.jpg 780w, images/img1_1190.jpg 1190w, images/img1_1500.jpg 1500w" class="scale">
+					<img src="images/img1_1500.jpg" alt="Круглый стол" class="scale">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="images/img2_256.webp 256w, images/img2_780.webp 780w, images/img2_1190.webp 1190w, images/img2_1500.webp 1500w" class="scale">
+					<source srcset="images/img2_256.jpg 256w, images/img2_780.jpg 780w, images/img2_1190.jpg 1190w, images/img2_1500.jpg 1500w" class="scale">
+					<img src="images/img2_1500.jpg" alt="Полевой выезд на городище" class="scale">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="images/img3_256.webp 256w, images/img3_780.webp 780w, images/img3_1190.webp 1190w, images/img3_1500.webp 1500w" class="scale">
+					<source srcset="images/img3_256.jpg 256w, images/img3_780.jpg 780w, images/img3_1190.jpg 1190w, images/img3_1500.jpg 1500w" class="scale">
+					<img src="images/img3_1500.jpg" alt="Полевой выезд на городище" class="scale">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="images/img4_256.webp 256w, images/img4_780.webp 780w, images/img4_1190.webp 1190w, images/img4_1500.webp 1500w" class="scale">
+					<source srcset="images/img4_256.jpg 256w, images/img4_780.jpg 780w, images/img4_1190.jpg 1190w, images/img4_1500.jpg 1500w" class="scale">
+					<img src="images/img4_1500.jpg" alt="Мастер-класс по изготовлению перепеч" class="scale">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="images/img5_256.webp 256w, images/img5_780.webp 780w, images/img5_1190.webp 1190w, images/img5_1500.webp 1500w" class="scale">
+					<source srcset="images/img5_256.jpg 256w, images/img5_780.jpg 780w, images/img5_1190.jpg 1190w, images/img5_1500.jpg 1500w" class="scale">
+					<img src="images/img5_1500.jpg" alt="Полевой выезд на городище" class="scale">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="images/img6_256.webp 256w, images/img6_780.webp 780w, images/img6_1190.webp 1190w, images/img6_1500.webp 1500w" class="scale">
+					<source srcset="images/img6_256.jpg 256w, images/img6_780.jpg 780w, images/img6_1190.jpg 1190w, images/img6_1500.jpg 1500w" class="scale">
+					<img src="images/img6_1500.jpg" alt="Вид с городища Иднакар" class="scale">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="images/img7_256.webp 256w, images/img7_780.webp 780w, images/img7_1190.webp 1190w, images/img7_1500.webp 1500w" class="scale">
+					<source srcset="images/img7_256.jpg 256w, images/img7_780.jpg 780w, images/img7_1190.jpg 1190w, images/img7_1500.jpg 1500w" class="scale">
+					<img src="images/img7_1500.jpg" alt="Лудорвай" class="scale">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="images/img8_256.webp 256w, images/img8_780.webp 780w, images/img8_1190.webp 1190w, images/img8_1500.webp 1500w" class="scale">
+					<source srcset="images/img8_256.jpg 256w, images/img8_780.jpg 780w, images/img8_1190.jpg 1190w, images/img8_1500.jpg 1500w" class="scale">
+					<img src="images/img8_1500.jpg" alt="Геодезическая съёмка" class="scale">
+				</picture>
 		</div>
 
 		<div class="paragraph02" style="display: inline-flex;">
-			<img src="images/zhuzha.png" alt="Иллюстрация" width="10%" height="10%">
+			<img src="images/zhuzha.png" source type="image/webp" srcset="images/zhuzha.webp" source type="image/jpeg" srcset="images/zhuzha.png" alt="Иллюстрация" width="10%" height="10%">
 			<div class="paragraph2">
 				<p>
 				Работа велась как непосредственно в музее-заповеднике "Иднакар", так и по возвращении в Москву.<br><br>
@@ -188,26 +230,53 @@
 		<div class="container_pdf">
 			<ul class="pdf-gallery">
 				<li>
-				<a href="pdf/stendy13.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy13.webp"><source type="image/jpeg" srcset="pdf/stendy13.jpg"><img src="pdf/stendy13.jpg" alt="pdf-файл о том как прошла экспедиция"></picture></a>
+				<a href="pdf/stendy13.pdf" target="_blank">
+					<picture>
+						<source type="image/webp" srcset="pdf/stendy13_280.webp 280w, pdf/stendy13_560.webp 560w">
+						<source srcset="pdf/stendy13_280.jpg 280w, pdf/stendy13_560.jpg 560w">
+						<img src="pdf/stendy13_560.jpg" alt="pdf-файл о том как прошла экспедиция">
+					</picture>
+				</a>
 				<a href="pdf/stendy13.pdf" target="_blank"><div class="overlay_pdf"><span>Как прошла экспедиция</span></div></a>
 				</li>
 				<li>
-				<a href="pdf/stendy5.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy5.webp"><source type="image/jpeg" srcset="pdf/stendy5.jpg"><img src="pdf/stendy5.jpg" alt="pdf-файл о результатах работы фотограмметристов"></picture></a>
+				<a href="pdf/stendy5.pdf" target="_blank">
+					<picture>
+						<source type="image/webp" srcset="pdf/stendy5_280.webp 280w, pdf/stendy5_560.webp 560w">
+						<source srcset="pdf/stendy5_280.jpg 280w, pdf/stendy5_560.jpg 560w">
+						<img src="pdf/stendy5_560.jpg" alt="pdf-файл о результатах работы фотограмметристов">
+					</picture>
+				</a>
 				<a href="pdf/stendy5.pdf" target="_blank"><div class="overlay_pdf"><span>Фотограмметристы</span></div></a>
 				</li>
 				<li>
-				<a href="pdf/stendy4.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy4.webp"><source type="image/jpeg" srcset="pdf/stendy4.jpg"><img src="pdf/stendy5.jpg" alt="pdf-файл о результатах работы картографов"></picture></a>
+				<a href="pdf/stendy4.pdf" target="_blank">
+					<picture>
+						<source type="image/webp" srcset="pdf/stendy4_280.webp 280w, pdf/stendy4_560.webp 560w">
+						<source srcset="pdf/stendy4_280.jpg 280w, pdf/stendy4_560.jpg 560w">
+						<img src="pdf/stendy4_560.jpg" alt="pdf-файл о результатах работы картографов">
+					</picture>
+					</a>
 				<a href="pdf/stendy4.pdf" target="_blank"><div class="overlay_pdf"><span>Картографы</span></div></a>
 				</li>
 				<li>
-				<a href="pdf/stendy67.pdf" target="_blank"><picture><source type="image/webp" srcset="pdf/stendy67.webp"><source type="image/jpeg" srcset="pdf/stendy67.jpg"><img src="pdf/stendy67.jpg" alt="pdf-файл о результатах работы архитекторов"></picture></a>
+				<a href="pdf/stendy67.pdf" target="_blank">
+					<picture>
+						<source type="image/webp" srcset="pdf/stendy67_280.webp 280w, pdf/stendy67_560.webp 560w">
+						<source srcset="pdf/stendy67_280.jpg 280w, pdf/stendy67_560.jpg 560w">
+						<img src="pdf/stendy67_560.jpg" alt="pdf-файл о результатах работы архитекторов">
+					</picture>
+				</a>
 				<a href="pdf/stendy67.pdf" target="_blank"><div class="overlay_pdf"><span>Архитекторы</span></div></a>
 				</li>
 			</ul>
 		</div>
-
 		<div id="id_mountain">
-			<img src="images/mountain.png" alt="Иллюстрация" width="100%" height="100%" align="center">
+			<picture>
+				<source type="image/webp" srcset="images/mountain_300.webp 300w, images/mountain_1920.webp 1920w" sizes="100vw">
+				<source type="image/jpeg" srcset="images/mountain_300.png 300w, images/mountain_1920.png 1920w" sizes="100vw">
+				<img src="images/mountain_1920.png" alt="Модель городища Иднакар" width="100%" height="100%" align="center">
+			</picture>
 			<div class="id_mountain_text_1"><a href="https://vk.com/ilyyuusha" target="_blank">Made by Ilya Soskov</a></div>
 			<div class="id_mountain_text_2">MIIGAIK 2023</div>				
 		</div>		

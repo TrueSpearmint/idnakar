@@ -58,7 +58,8 @@
 	overflow: hidden; 
 	background-color: rgba(249, 223, 168, 0.2);
 }
-.photos a {              
+
+.photos picture {              
 	width: 25%;                /* отвечает за кол-во фоток в ряд */
 	display: block;
 	float: left;
