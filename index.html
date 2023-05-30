@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Определение области просмотра под все форматы -->
 		<meta name="description" content="Экспедиция МИИГАиК на «Городище Иднакар»">  <!-- Краткое описание страинцы -->
 		<meta name="keywords" content="Иднакар, Экспедиция на Иднакар, городище Иднакар, МИИГАиК, Картфак">  <!-- Ключевые слова страинцы -->
-		<meta name="Author" content="Илья Сосков"> <!-- Автор страницы -->
+		<!-- <meta name="Author" content="М"> Автор страницы -->
 		<meta name="Address" content="https://vk.com/ilyyuusha"> <!-- Адрес автора -->
 		<meta property="og:locale" content="ru_RU"> <!-- локализация сайта, для русскоязычного сайта ru_RU -->
 		<meta property="og:type" content="article"> <!-- тип контента, по умолчанию используется article -->
@@ -45,7 +45,15 @@
     <button class="tablink" onclick="openPage('Models', this)">Модели</button>
 
     <div id="Home" class="tabcontent">
-        <img id="id_preview" src="images/preview.png" alt="Иллюстрация">
+        <!-- <img id="id_preview" src="images/preview.png" alt="Иллюстрация"> -->
+		<picture>
+			<source srcset="images/preview.png" media="(min-width: 1100px)" />
+			<source srcset="images/Idnakar_preview_1000х1129.jpg" media="(min-width: 900px)" />
+			<source srcset="images/Иднакар_превью_800х1129.jpg" media="(min-width: 700px)" />
+			<source srcset="images/Иднакар_превью_600х800.jpg" media="(min-width: 500px)" />
+			<source srcset="images/Иднакар_превью_400х800.jpg" media="(min-width: 0px)" />
+			<img id="id_preview" src="images/preview.png" />
+		</picture>
 	  	<div class="line1-box">
 			<div class="line1">
 				История
