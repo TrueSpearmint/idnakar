@@ -45,15 +45,20 @@
     <button class="tablink" onclick="openPage('Models', this)">Модели</button>
 
     <div id="Home" class="tabcontent">
-        <!-- <img id="id_preview" src="images/preview.png" alt="Иллюстрация"> -->
-		<picture>
-			<source srcset="images/preview.png" media="(min-width: 1100px)" />
-			<source srcset="images/Idnakar_preview_1000х1129.jpg" media="(min-width: 900px)" />
-			<source srcset="images/Иднакар_превью_800х1129.jpg" media="(min-width: 700px)" />
-			<source srcset="images/Иднакар_превью_600х800.jpg" media="(min-width: 500px)" />
-			<source srcset="images/Иднакар_превью_400х800.jpg" media="(min-width: 0px)" />
-			<img id="id_preview" src="images/preview.png" />
+		<picture >
+			<source srcset="images/preview_1400.jpg 1400w, images/preview_1640.jpg 1640w, images/preview_1860.jpg 1860w, images/preview_2048.jpg 2048w" sizes="100vw"
+			 media="(min-width: 1400px)" />
+			<source srcset="images/preview_empty_300.jpg 300w, images/preview_empty_830.jpg 830w, images/preview_empty_1140.jpg 1140w, images/preview_empty_1380.jpg 1380w, images/preview_empty_1570.jpg 1570w, images/preview_empty_1750.jpg 1750w, images/preview_empty_1900.jpg 1900w, images/preview_empty_2048.jpg 2048w" sizes="100vw" media="(min-width: 0px)" />
+			<img id="id_preview" src="images/preview_2048.jpg" />
+				<div id="preview_text_1">
+					<span>ИДНАКАР</span>
+				</div>
+				<div id="preview_text_2">
+					<span>Узнать больше</span>
+					<div class="arrow-bottom"></div>
+				</div>
 		</picture>
+		
 	  	<div class="line1-box">
 			<div class="line1">
 				История

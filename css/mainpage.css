@@ -1,4 +1,3 @@
-/* Фото Иднакара первая. Чтобы автоматически масштабировалось взял с сайта https://anacondaz.ru/ */
 #id_preview{
 	width: 100%;
     height: 95vh;
@@ -7,6 +6,60 @@
     background-size: cover;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 1400px){
+	#id_preview{
+		object-fit: cover;
+		height: 95vh;
+	}
+	#preview_text_1{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align:center;
+		color: white;
+		font-family: 'Montserrat',Verdana,sans-serif; 
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14vw;
+	}
+	#preview_text_2{
+		position: absolute;
+		top: 88%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align:center;
+		color: white;
+		font-family: 'Montserrat',Verdana,sans-serif; 
+		font-style: normal;
+		font-weight: bold;
+		font-size: 2vh;
+		text-shadow: 1px 1px 5px rgb(0, 0, 0);
+	}
+	.arrow-bottom {
+		position: absolute;
+		top: 5%;
+		left: 28%;
+		width: 7vh;
+		height: 7vh;
+		border-top: 5px solid #ffffff;
+		border-right: 5px solid #ffffff;
+		transform: rotate(135deg); 
+	}
+}
+
+@media (min-width: 1400px){
+	#preview_text_1{
+		display:none;
+	}
+	#preview_text_2{
+		display:none;
+	}
+	.arrow-bottom {
+		display:none;
+	}
 }
 
 /* Надпись #1 История и полоска под ней */
@@ -168,7 +221,7 @@ ul {
 	align-items: center;
 	justify-content: center;
 }
-  .image-gallery li:hover .overlay {
+.image-gallery li:hover .overlay {
 	transform: scale(1);
 }
 
