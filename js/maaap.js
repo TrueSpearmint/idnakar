@@ -23,7 +23,7 @@ map.getPane('s').style.pointerEvents = 'none';
 //Mapbox_Outdoors_Idnakar layer//
 var Mapbox_Outdoors_Idnakar = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/clg4uvia8002d01jzl5o5igoc/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJja21xZnRjcG4wN25oMndtcWFoaTgwbHU0In0.MZ_KaXzPzUaXzqGq1sRZRg', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
-pane: 's',
+pane: 'q',
 maxZoom: 22,
 });
 Mapbox_Outdoors_Idnakar.addTo(map);
@@ -44,7 +44,7 @@ maxZoom: 22,
 
 //Загрузка подложек с компьютера//
 //Компиляция археологических отчётов//
-var otcheti = L.tileLayer('tiles/otcheti/{z}/{x}/{y}.png', {
+var otcheti = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/otcheti/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -52,7 +52,7 @@ maxZoom: 22
 });
 
 //Разграфка для отчётов//
-var razgrafka = L.tileLayer('tiles/razgrafka/{z}/{x}/{y}.png', {
+var razgrafka = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/razgrafka/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -61,7 +61,7 @@ maxNativeZoom: 20
 });
 
 //План в восточной части//
-var topoplan600 = L.tileLayer('tiles/topoplan600/{z}/{x}/{y}.png', {
+var topoplan600 = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/topoplan600/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -70,7 +70,7 @@ maxNativeZoom: 20
 });
 
 //Топоплан Иднакара//
-var topoplan = L.tileLayer('tiles/topoplan/{z}/{x}/{y}.png', {
+var topoplan = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/topoplan/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -79,7 +79,7 @@ maxNativeZoom: 20
 });
 
 //Ортофото цветокор WGS 84//
-var orthophoto_color = L.tileLayer('tiles/orthophoto_color/{z}/{x}/{y}.png', {
+var orthophoto_color = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/orthophoto_color/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -88,7 +88,7 @@ maxNativeZoom: 20 //Зум до которого есть тайлы
 });
 
 //Ортофото точное WGS 84//
-var orthophoto_accurate = L.tileLayer('tiles/orthophoto_accurate/{z}/{x}/{y}.png', {
+var orthophoto_accurate = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/orthophoto_accurate/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -97,7 +97,7 @@ maxNativeZoom: 20
 });
 
 //ЦММ среднее//
-var cmm = L.tileLayer('tiles/cmm/{z}/{x}/{y}.png', {
+var cmm = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/cmm/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -106,7 +106,7 @@ maxNativeZoom: 20
 });
 
 //Снимок 1975 года//
-var keyhole_d3c = L.tileLayer('tiles/keyhole_d3c/{z}/{x}/{y}.png', {
+var keyhole_d3c = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/keyhole_d3c/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
@@ -115,7 +115,7 @@ maxNativeZoom: 20
 });
 
 //Снимок 1965 года//
-var keyhole_dzb = L.tileLayer('tiles/keyhole_dzb/{z}/{x}/{y}.png', {
+var keyhole_dzb = L.tileLayer('https://storage.yandexcloud.net/tileserver/idnakar/tiles/keyhole_dzb/{z}/{x}/{y}.png', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 tms: true,
 pane: 'q',
