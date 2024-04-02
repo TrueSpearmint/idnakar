@@ -21,7 +21,7 @@ map.getPane('s').style.pointerEvents = 'none';
 
 //Загрузка подложек из интернета//
 //Mapbox_Outdoors_Idnakar layer//
-var Mapbox_Outdoors_Idnakar = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/clg4uvia8002d01jzl5o5igoc/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJja21xZnRjcG4wN25oMndtcWFoaTgwbHU0In0.MZ_KaXzPzUaXzqGq1sRZRg', {
+var Mapbox_Outdoors_Idnakar = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/clg4uvia8002d01jzl5o5igoc/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJjbHVpbDl1bXcwNTg1MmltdjI2NmpsNXdpIn0.hTURiBYjIAijbKZnfQPdrg', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 pane: 'q',
 maxZoom: 22,
@@ -29,14 +29,14 @@ maxZoom: 22,
 Mapbox_Outdoors_Idnakar.addTo(map);
 
 //Mapbox_Idnakar layer//
-var Mapbox_Idnakar = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/clg2kgy6n000u01ms3xmq7lbe/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJja21xZnRjcG4wN25oMndtcWFoaTgwbHU0In0.MZ_KaXzPzUaXzqGq1sRZRg', {
+var Mapbox_Idnakar = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/clg2kgy6n000u01ms3xmq7lbe/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJjbHVpbDl1bXcwNTg1MmltdjI2NmpsNXdpIn0.hTURiBYjIAijbKZnfQPdrg', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 pane: 's',
 maxZoom: 22,
 });
 
 //Mapbox_Satellite//
-var Mapbox_Satellite = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/cl8j3je6x002815o59qa0zaeu/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJja21xZnRjcG4wN25oMndtcWFoaTgwbHU0In0.MZ_KaXzPzUaXzqGq1sRZRg', {
+var Mapbox_Satellite = L.tileLayer('https://api.mapbox.com/styles/v1/truespearmint/cl8j3je6x002815o59qa0zaeu/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidHJ1ZXNwZWFybWludCIsImEiOiJjbHVpbDl1bXcwNTg1MmltdjI2NmpsNXdpIn0.hTURiBYjIAijbKZnfQPdrg', {
 attribution: '<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>',
 pane: 'q',
 maxZoom: 22,
